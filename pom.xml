@@ -17,7 +17,7 @@
 
     <packaging>pom</packaging>
     <modules>
-        <module>oder-service</module>
+        <module>order-service</module>
     </modules>
 
     <properties>

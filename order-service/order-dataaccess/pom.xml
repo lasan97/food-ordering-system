@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.food.ordering.system</groupId>
-        <artifactId>oder-service</artifactId>
+        <artifactId>order-service</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>order-messaging</artifactId>
+    <artifactId>order-dataaccess</artifactId>
 
     <properties>
     </properties>

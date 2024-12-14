@@ -4,13 +4,6 @@ import com.food.ordering.system.domain.valueobject.Money;
 import com.food.ordering.system.domain.valueobject.OrderId;
 import com.food.ordering.system.domain.valueobject.OrderItemId;
 
-import java.util.UUID;
-
-/**
- * @author martin
- * @description order item
- * @since 2024.12.10
- **********************************************************************************************************************/
 public class OrderItem extends BaseEntity<OrderItemId> {
 
 	private OrderId orderId;
@@ -49,6 +42,18 @@ public class OrderItem extends BaseEntity<OrderItemId> {
 
 	public Money getSubTotal() {
 		return subTotal;
+	}
+
+	void initializeOrderItem(OrderId orderId, OrderItemId orderItemId) {
+		this.orderId = orderId;
+		super.setId(orderItemId);
+	}
+
+	boolean isPriceValid() {
+		return price.isGreaterThanZero() &&
+				price.equals(product.getPrice()) &&
+				price.multiply(quantity).equals(subTotal);
+
 	}
 
 	public static final class Builder {

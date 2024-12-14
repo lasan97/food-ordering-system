@@ -3,11 +3,6 @@ package com.food.ordering.system.domain.valueobject;
 import java.util.Objects;
 import java.util.UUID;
 
-/**
- * @author martin
- * @description street address
- * @since 2024.12.10
- **********************************************************************************************************************/
 public class StreetAddress {
 
 	private final UUID id;

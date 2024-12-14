@@ -2,11 +2,6 @@ package com.food.ordering.system.domain.valueobject;
 
 import java.util.Objects;
 
-/**
- * @author martin
- * @description base id
- * @since 2024.12.10
- **********************************************************************************************************************/
 public abstract class BaseId<T> {
 
 	private final T value;

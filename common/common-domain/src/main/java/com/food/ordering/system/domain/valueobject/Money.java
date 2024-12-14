@@ -4,14 +4,11 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Objects;
 
-/**
- * @author martin
- * @description money
- * @since 2024.12.10
- **********************************************************************************************************************/
 public class Money {
 
 	private final BigDecimal amount;
+
+	public static final Money ZERO = new Money(BigDecimal.ZERO);
 
 	public Money(BigDecimal amount) {
 		this.amount = amount;

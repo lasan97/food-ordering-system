@@ -18,11 +18,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Optional;
 import java.util.UUID;
 
-/**
- * @author martin
- * @description order create helper
- * @since 2024.12.18
- **********************************************************************************************************************/
 @Slf4j
 @Component
 @RequiredArgsConstructor

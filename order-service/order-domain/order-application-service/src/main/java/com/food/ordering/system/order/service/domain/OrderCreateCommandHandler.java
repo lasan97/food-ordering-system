@@ -23,6 +23,6 @@ public class OrderCreateCommandHandler {
 		log.info("Order created with id: {}", orderCreatedEvent.getOrder().getId().getValue());
 		orderCreatedPaymentRequestMessagePublisher.publish(orderCreatedEvent);
 
-		return orderDateMapper.orderToCreateOrderResponse(orderCreatedEvent.getOrder());
+		return orderDateMapper.orderToCreateOrderResponse(orderCreatedEvent.getOrder(), "Order Created Successfully");
 	}
 }

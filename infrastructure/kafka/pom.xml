@@ -21,7 +21,7 @@
     <repositories>
         <repository>
             <id>confluent</id>
-            <url>https://packages.confluent.io/mavne/</url>
+            <url>https://packages.confluent.io/maven/</url>
         </repository>
     </repositories>
 

@@ -34,7 +34,7 @@ public class OrderEntity {
 	private OrderAddressEntity address;
 
 	@OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
-	private List<OrderItemEntity> item;
+	private List<OrderItemEntity> items;
 
 	@Override
 	public boolean equals(Object o) {

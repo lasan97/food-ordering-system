@@ -24,7 +24,7 @@ public class GlobalExceptionHandler {
 				.build();
 	}
 
-	@RequestBody
+	@ResponseBody
 	@ExceptionHandler(value = {ValidationException.class})
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
 	public ErrorDTO handleExceptions(ValidationException validationException) {

@@ -41,3 +41,4 @@ build/
 **/infrastructure/docker-compose/volumes/kafka/broker**
 **/infrastructure/docker-compose/volumes/zookeeper/data/**
 **/infrastructure/docker-compose/volumes/zookeeper/transactions/**
+**/infrastructure/docker-compose/volumes/postgres/**

@@ -7,6 +7,13 @@
         <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/payment-service/payment-contatiner/pom.xml" />
+        <option value="$PROJECT_DIR$/payment-service/payment-test/pom.xml" />
+        <option value="$PROJECT_DIR$/payment-service/payment-test/test-test/pom.xml" />
+      </set>
+    </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="corretto-17 (3)" project-jdk-type="JavaSDK" />
   <component name="ProjectType">

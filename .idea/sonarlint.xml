@@ -4,6 +4,7 @@
     <option name="moduleMapping">
       <map>
         <entry key="order-service" value="oder-service" />
+        <entry key="payment-application-service" value="payment-domain-service" />
       </map>
     </option>
   </component>

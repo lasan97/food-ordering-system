@@ -8,6 +8,7 @@ import com.food.ordering.system.payment.service.messaging.mapper.PaymentMessagin
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.annotation.KafkaListener;
+import org.springframework.kafka.support.KafkaHeaders;
 import org.springframework.messaging.handler.annotation.Header;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Component;
@@ -26,9 +27,9 @@ public class PaymentRequestKafkaListener implements KafkaConsumer<PaymentRequest
 	@KafkaListener(id = "${kafka-consumer-config.payment-consumer-group-id}",
 			topics = "${payment-service.payment-request-topic-name}")
 	public void receive(@Payload List<PaymentRequestAvroModel> messages,
-						@Header List<String> keys,
-						@Header List<Integer> partitions,
-						@Header List<Long> offsets) {
+						@Header(KafkaHeaders.RECEIVED_MESSAGE_KEY) List<String> keys,
+						@Header(KafkaHeaders.RECEIVED_PARTITION_ID) List<Integer> partitions,
+						@Header(KafkaHeaders.OFFSET) List<Long> offsets) {
 		log.info("{} number of payment requests received with keys: {}, partitions: {} and offsets: {}",
 				messages.size(),
 				keys.toString(),

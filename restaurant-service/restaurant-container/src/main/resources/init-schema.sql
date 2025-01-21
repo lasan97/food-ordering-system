@@ -48,7 +48,7 @@ CREATE TABLE restaurant.restaurant_products
 	restaurant_id UUID NOT NULL,
 	product_id UUID NOT NULL,
 	CONSTRAINT restaurant_products_pkey PRIMARY KEY (id)
-)
+);
 
 ALTER TABLE restaurant.restaurant_products
     ADD CONSTRAINT "FK_RESTAURANT_ID" FOREIGN KEY (restaurant_id)
@@ -95,7 +95,7 @@ BEGIN
 END;
 ' LANGUAGE plpgsql;
 
-CREATE trigger IF EXISTS refresh_order_restaurant_m_view ON restaurant.restaurant_products;
+DROP trigger IF EXISTS refresh_order_restaurant_m_view ON restaurant.restaurant_products;
 
 CREATE trigger refresh_order_restaurant_m_view
     after INSERT OR UPDATE OR DELETE OR truncate

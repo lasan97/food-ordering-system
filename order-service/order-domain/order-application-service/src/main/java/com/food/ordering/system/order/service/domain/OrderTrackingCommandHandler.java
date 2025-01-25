@@ -28,7 +28,7 @@ public class OrderTrackingCommandHandler {
 
 		if(orderResult.isEmpty()) {
 			log.warn("Could not find order with trakcing id: {}", trackOrderQuery.getOrderTrackingId());
-			throw new OrderNotFoundException("Could not find order with trakcing id:"
+			throw new OrderNotFoundException("Could not find order with trakcing id: "
 					+ trackOrderQuery.getOrderTrackingId());
 		}
 		return orderDateMapper.orderToTrackOrderResponse(orderResult.get());

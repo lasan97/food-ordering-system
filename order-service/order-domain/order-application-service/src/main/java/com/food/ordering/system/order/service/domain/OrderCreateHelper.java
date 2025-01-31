@@ -13,7 +13,6 @@ import com.food.ordering.system.order.service.domain.ports.output.repository.Res
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 import java.util.UUID;
@@ -28,14 +27,12 @@ public class OrderCreateHelper {
 	private final CustomerRepository customerRepository;
 	private final RestaurantRepository restaurantRepository;
 	private final OrderDateMapper orderDateMapper;
-	private final OrderCreatedPaymentRequestMessagePublisher orderCreatedPaymentRequestMessagePublisher;
 
-	@Transactional
 	public OrderCreatedEvent persistOrder(CreateOrderCommand createOrderCommand) {
 		checkCustomer(createOrderCommand.getCustomerId());
 		Restaurant restaurant = checkRestaurant(createOrderCommand);
 		Order order = orderDateMapper.createOrderCommandToOrder(createOrderCommand);
-		OrderCreatedEvent orderCreatedEvent = orderDomainService.validateAndInitiateOrder(order, restaurant, orderCreatedPaymentRequestMessagePublisher);
+		OrderCreatedEvent orderCreatedEvent = orderDomainService.validateAndInitiateOrder(order, restaurant);
 		saveOrder(order);
 		log.info("Order is created with id: {}", orderCreatedEvent.getOrder().getId().getValue());
 

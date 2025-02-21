@@ -1,7 +1,6 @@
 services:
   postgres:
     image: postgres:16
-    container_name: postgres_db
     environment:
       POSTGRES_DB: food-ordering
       POSTGRES_USER: martin
@@ -17,7 +16,6 @@ services:
 
   pgadmin:
     image: dpage/pgadmin4:8.13.0
-    container_name: pgadmin4
     environment:
       PGADMIN_DEFAULT_EMAIL: martin@martin.com
       PGADMIN_DEFAULT_PASSWORD: 0322!

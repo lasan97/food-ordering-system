@@ -1,11 +1,12 @@
-package com.food.ordering.system.payment.service.dataaccess.outbox.mapper;
+package com.food.ordering.system.restaurant.service.dataaccess.restaurant.outbox.mapper;
 
-import com.food.ordering.system.payment.service.dataaccess.outbox.entity.OrderOutboxEntity;
-import com.food.ordering.system.payment.service.domain.outbox.model.OrderOutboxMessage;
+import com.food.ordering.system.restaurant.service.dataaccess.restaurant.outbox.entity.OrderOutboxEntity;
+import com.food.ordering.system.restaurant.service.domain.outbox.model.OrderOutboxMessage;
 import org.springframework.stereotype.Component;
 
 @Component
 public class OrderOutboxDataAccessMapper {
+
 	public OrderOutboxEntity orderOutboxMessageToOutboxEntity(OrderOutboxMessage orderOutboxMessage) {
 		return OrderOutboxEntity.builder()
 				.id(orderOutboxMessage.getId())
@@ -14,7 +15,7 @@ public class OrderOutboxDataAccessMapper {
 				.type(orderOutboxMessage.getType())
 				.payload(orderOutboxMessage.getPayload())
 				.outboxStatus(orderOutboxMessage.getOutboxStatus())
-				.paymentStatus(orderOutboxMessage.getPaymentStatus())
+				.approvalStatus(orderOutboxMessage.getApprovalStatus())
 				.version(orderOutboxMessage.getVersion())
 				.build();
 	}
@@ -27,7 +28,7 @@ public class OrderOutboxDataAccessMapper {
 				.type(paymentOutboxEntity.getType())
 				.payload(paymentOutboxEntity.getPayload())
 				.outboxStatus(paymentOutboxEntity.getOutboxStatus())
-				.paymentStatus(paymentOutboxEntity.getPaymentStatus())
+				.approvalStatus(paymentOutboxEntity.getApprovalStatus())
 				.version(paymentOutboxEntity.getVersion())
 				.build();
 	}

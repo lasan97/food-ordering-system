@@ -47,10 +47,10 @@ public class RestaurantApprovalResponseKafkaListener implements KafkaConsumer<En
 
 		log.info("{} number of restaurant approval responses received ",
 				messages.stream().filter(message -> message.getBefore() == null &&
-						DebeziumOp.CREATE.name().equals(message.getOp())).toList().size());
+						DebeziumOp.CREATE.getValue().equals(message.getOp())).toList().size());
 
         messages.forEach(avroModel -> {
-			if(avroModel.getBefore() == null && DebeziumOp.CREATE.name().equals(avroModel.getOp())) {
+			if(avroModel.getBefore() == null && DebeziumOp.CREATE.getValue().equals(avroModel.getOp())) {
 				log.info("Incoming message in RestaurantApprovalResponseKafkaListener: {}", avroModel);
 				Value restaurantApprovalResponseAvroModel = avroModel.getAfter();
 				RestaurantOrderEventPayload restaurantOrderEventPayload = kafkaMessageHelper.getOrderEventPayload(restaurantApprovalResponseAvroModel.getPayload(), RestaurantOrderEventPayload.class);

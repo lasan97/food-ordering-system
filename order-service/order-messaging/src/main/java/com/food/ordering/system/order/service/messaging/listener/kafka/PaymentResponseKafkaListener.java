@@ -44,10 +44,10 @@ public class PaymentResponseKafkaListener implements KafkaConsumer<Envelope> {
 			@Header(KafkaHeaders.OFFSET) List<Long> offsets) {
 		log.info("{} number of payment responses received ",
 				messages.stream().filter(message -> message.getBefore() == null &&
-						DebeziumOp.CREATE.name().equals(message.getOp())).toList().size());
+						DebeziumOp.CREATE.getValue().equals(message.getOp())).toList().size());
 
 		messages.forEach(avroModel -> {
-			if(avroModel.getBefore() == null && DebeziumOp.CREATE.name().equals(avroModel.getOp())) {
+			if(avroModel.getBefore() == null && DebeziumOp.CREATE.getValue().equals(avroModel.getOp())) {
 				log.info("Incoming message in PaymentResponseKafkaListener: {}", avroModel);
 				Value paymentResponseAvroModel = avroModel.getAfter();
 				PaymentOrderEventPayload paymentOrderEventPayload = kafkaMessageHelper.getOrderEventPayload(paymentResponseAvroModel.getPayload(), PaymentOrderEventPayload.class);

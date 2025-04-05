@@ -3,7 +3,7 @@
 echo "Starting Zookeeper"
 
 # start zookeeper
-docker-compose -f common.yml -f zookeeper.yml up -d
+docker compose -f common.yml -f zookeeper.yml up -d
 
 # check zookeeper health
 # zookeeper가 잘 동작했는지 확인하기위해 ruok 사용
@@ -19,7 +19,7 @@ done
 echo "Starting Kafka cluster"
 
 # start kafka
-docker-compose -f common.yml -f kafka_cluster.yml up -d
+docker compose -f common.yml -f kafka_cluster.yml up -d
 
 # check kafka health
 kafkaCheckResult=$(kcat -L -b localhost:19092 | grep '3 brokers:')
@@ -33,7 +33,7 @@ done
 echo "Creating Kafka topics"
 
 # start kafka init
-docker-compose -f common.yml -f init_kafka.yml up -d
+docker compose -f common.yml -f init_kafka.yml up -d
 
 # check topics in kafka
 kafkaTopicCheckResult=$(kcat -L -b localhost:19092 | grep 'debezium.restaurant.order_outbox')
